@@ -29,7 +29,7 @@ class NetworkManager {
 
             do {
                 let posts = try JSONDecoder().decode([Posts].self, from: data)
-                
+                print(posts.first?.title)
             } catch {
                 print(error)
             }
