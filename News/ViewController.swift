@@ -12,11 +12,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NetworkManager.shared.getPosts { (posts) in
-            guard let posts = posts else {
+        NetworkManager.shared.getPosts { (news) in
+            guard let news = news else {
                 return
             }
-            print(posts.first?.title)
+            print(news[0].title ?? "No data")
         }
     }
 }
