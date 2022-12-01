@@ -12,7 +12,7 @@ final class NewsTableViewCell: UITableViewCell {
     var newsVM: NewsViewModel? {
         didSet {
             if let newsVM = newsVM {
-                <#body#>
+                titleLabel.text = newsVM.title
             }
         }
     }

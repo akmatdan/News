@@ -30,11 +30,36 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NetworkManager.shared.getPosts { (news) in
-            guard let news = news else {
-                return
-            }
-            print(news[0].title ?? "No data")
+        
+        setupView()
+        fetchNews()
+    }
+    
+    func setupView() {
+        view.backgroundColor = .systemGray
+        view.addSubview(headerView)
+        view.addSubview(tableView)
+        
+        setupConstraints()
+    }
+    
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10)
+        ])
+        
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 8),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    
+    func fetchNews() {
+        viewModel.getNews { (_) in
+            self.tableView.reloadData()
         }
     }
 }
