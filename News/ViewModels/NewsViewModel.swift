@@ -18,5 +18,11 @@ struct NewsViewModel {
         return post.body ?? "Unknown"
     }
     
+    var id: Int {
+        return post.id ?? 0
+    }
     
+    var userId: Int {
+        return post.id ?? 0
+    }
 }

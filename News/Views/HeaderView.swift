@@ -24,7 +24,7 @@ final class HeadrView: UIView {
         v.translatesAutoresizingMaskIntoConstraints = false
         v.contentMode = .scaleAspectFit
         let config = UIImage.SymbolConfiguration(pointSize: fontSize, weight: .bold)
-        v.image = UIImage(systemName: "", withConfiguration: config)?.withRenderingMode(.alwaysOriginal)
+        v.image = UIImage(systemName: "newspaper.fill", withConfiguration: config)?.withRenderingMode(.alwaysOriginal)
         return v
     }()
     
@@ -58,7 +58,5 @@ final class HeadrView: UIView {
             headerStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             headerStackView.topAnchor.constraint(equalTo: topAnchor)
         ])
-        
-        
     }
 }

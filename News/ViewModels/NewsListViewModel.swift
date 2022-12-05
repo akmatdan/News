@@ -15,6 +15,7 @@ class NewsListViewModel {
     func getNews(complition: @escaping ([NewsViewModel]) -> Void) {
         NetworkManager.shared.getPosts { (news) in
             guard let news = news else { return }
+            
             let newsVM = news.map(NewsViewModel.init)
             DispatchQueue.main.async {
                 self.newsVM = newsVM

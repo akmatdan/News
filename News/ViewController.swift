@@ -30,13 +30,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         setupView()
         fetchNews()
     }
     
     func setupView() {
-        view.backgroundColor = .systemGray
+        view.backgroundColor = .white
         view.addSubview(headerView)
         view.addSubview(tableView)
         
